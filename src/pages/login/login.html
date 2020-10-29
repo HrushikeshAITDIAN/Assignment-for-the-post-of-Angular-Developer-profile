@@ -1,0 +1,123 @@
+<ion-content no-padding>
+  <div (swipe)="swipeEvent($event)" class="container">
+    <img src="./assets/imgs/logo.png" alt="">
+
+    <div class="login">
+      <h1 *ngIf="selector==1 || selector==undefined">Sign in</h1>
+      <h1 *ngIf="selector==2">Sign up</h1>
+      <div *ngIf="selector==1 || selector==undefined"
+        style="display: flex;width: 100%;text-align: center;justify-content: center;">
+        <div style="border: 3px solid lightgreen;display: flex;    width: 18%;"></div>
+        <div style="border: 3px solid lightgray;display: flex;    width: 18%;"></div>
+      </div>
+      <div *ngIf="selector==2" style="display: flex;width: 100%;text-align: center;justify-content: center;">
+        <div style="border: 3px solid lightgray;display: flex;    width: 18%;;"></div>
+        <div style="border: 3px solid lightgreen;display: flex;    width: 18%;"></div>
+      </div>
+
+
+
+      <form [formGroup]="credentialsForm">
+        <div *ngIf="selector==1 || selector==undefined">
+          <ion-item style="border: 1px solid white;">
+
+          
+            <ion-label floating>
+              <div style="margin-top: 26px" item-content>Email</div>
+            </ion-label>
+
+            <ion-input type="text" [formControl]="credentialsForm.controls['email']"></ion-input>
+            <span item-content style="    left: -2px;
+      position: fixed;
+      top: 56%;margin-left: 1px;">
+              <ion-icon name="md-mail"></ion-icon>
+            </span>
+          </ion-item>
+
+
+
+
+          <ion-item style="border: 1px solid white;">
+            <ion-label floating>
+              <div style="margin-top: 26px" item-content>Password</div>
+            </ion-label>
+            <ion-input type="password" [formControl]="credentialsForm.controls['password']"></ion-input>
+            <span item-content style="    left: -2px;
+      position: fixed;
+      top: 59%;margin-left: 1px;">
+              <ion-icon name="md-lock"></ion-icon>
+            </span>
+          </ion-item>
+     
+          <button (click)="onLogin()" ion-button round>Login</button>
+        </div>
+      </form>
+
+
+
+
+      <form [formGroup]="credentialsForm">
+        <div *ngIf="selector==2">
+          <ion-item style="border: 1px solid white;">
+
+            <!-- <ion-label color="primary"><ion-icon name="ios-person"></ion-icon></ion-label> -->
+            <ion-label floating>
+              <div style="margin-top: 26px" item-content>Email</div>
+            </ion-label>
+
+            <ion-input type="text" [formControl]="credentialsForm.controls['email']"></ion-input>
+            <span item-content style="    left: -2px;
+      position: fixed;
+      top: 56%;margin-left: 1px;">
+              <ion-icon name="md-mail"></ion-icon>
+            </span>
+          </ion-item>
+
+
+
+
+          <ion-item style="border: 1px solid white;">
+            <ion-label floating>
+              <div style="margin-top: 26px" item-content>Password</div>
+            </ion-label>
+            <ion-input type="password" [formControl]="credentialsForm.controls['password']"></ion-input>
+            <span item-content style="    left: -2px;
+      position: fixed;
+      top: 59%;margin-left: 1px;">
+              <ion-icon name="md-lock"></ion-icon>
+            </span>
+          </ion-item>
+          <ion-item style="border: 1px solid white;">
+            <ion-label floating>
+              <div style="margin-top: 26px" item-content>Username</div>
+            </ion-label>
+            <ion-input type="text" [formControl]="credentialsForm.controls['username']"></ion-input>
+            <span item-content style="    left: -2px;
+      position: fixed;
+      top: 59%;margin-left: 1px;">
+              <ion-icon name="md-contact"></ion-icon>
+            </span>
+          </ion-item>
+          <ion-item style="border: 1px solid white;">
+            <ion-label floating>
+              <div style="margin-top: 26px" item-content>Mobile Number</div>
+            </ion-label>
+            <ion-input type="text" [formControl]="credentialsForm.controls['phone']"></ion-input>
+            <span item-content style="    left: -2px;
+      position: fixed;
+      top: 59%;margin-left: 1px;">
+              <ion-icon name="md-call"></ion-icon>
+            </span>
+          </ion-item>
+         
+          <button (click)="register()" ion-button round>Register</button>
+        </div>
+      </form>
+    </div>
+
+
+
+ 
+  </div>
+
+</ion-content>
